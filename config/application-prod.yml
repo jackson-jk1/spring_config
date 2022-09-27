@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: auth-service
+  devtools:
+    restart:
+      additional-paths: src
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/auth'
+    username: root
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: '''INFO'''
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql: trace
+    root: '''INFO'''
+    com:
+      baeldung: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
